@@ -34,9 +34,9 @@ router.post("/save", async (req, res) => {
 
 
 // Fetch all data (Admin Panel)
-router.get("/get-data", async (req, res) => {
+router.get("/getdata", async (req, res) => {
   try {
-    const data = await Clicks.find();
+    const data = await ClicksSchema.find();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: "Error fetching data" });
