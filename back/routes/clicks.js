@@ -34,7 +34,7 @@ router.post("/save", async (req, res) => {
 
 
 // Fetch all data (Admin Panel)
-router.get("/", async (req, res) => {
+router.get("/get-data", async (req, res) => {
   try {
     const data = await Clicks.find();
     res.status(200).json(data);
