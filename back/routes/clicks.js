@@ -4,7 +4,7 @@ const router = express.Router();
 
 // save data to the database
 router.post("/save", async (req, res) => {
-  const { username, clicks, dollars } = req.body;
+  const { username, clicks, dollars , tonWalletAddress} = req.body;
 
   try {
     // Check if the user already exists in the database
@@ -14,6 +14,7 @@ router.post("/save", async (req, res) => {
       // If the user exists, update the existing entry
       user.clicks = clicks;
       user.dollars = dollars;
+      user.tonWalletAddress = tonWalletAddress;
       await user.save();
       return res.status(200).json({ message: "User data updated!" });
     } else {
