@@ -14,12 +14,12 @@ router.post("/save", async (req, res) => {
       // If the user exists, update the existing entry
       user.clicks = clicks;
       user.dollars = dollars;
-      user.tonWalletAddress = tonWalletAddress;
+      // user.tonWalletAddress = tonWalletAddress;
       await user.save();
       return res.status(200).json({ message: "User data updated!" });
     } else {
       // If the user does not exist, create a new entry
-      const newUser = new ClicksSchema({ username, clicks, dollars });
+      const newUser = new ClicksSchema({ username, clicks, dollars , tonWalletAddress });
       await newUser.save();
       return res.status(201).json({ message: "New user created!" });
     }
